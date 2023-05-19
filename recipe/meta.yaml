@@ -1,0 +1,47 @@
+{% set name = "pymorphy3" %}
+{% set version = "1.2.0" %}
+
+package:
+  name: {{ name|lower }}
+  version: {{ version }}
+
+source:
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/pymorphy3-{{ version }}.tar.gz
+  sha256: 322b7de091ea8ab35d5441f981f5ffbe39334e4a9326aefd247ebb2642233781
+
+build:
+  entry_points:
+    - pymorphy = pymorphy3.cli:main
+  script: {{ PYTHON }} -m pip install . -vv
+  number: 0
+
+requirements:
+  host:
+    - python
+    - pip
+    - setuptools
+    - wheel
+  run:
+    - python
+    - dawg-python >=0.7.1
+    - docopt >=0.6
+    - pymorphy3-dicts-ru
+
+test:
+  imports:
+    - pymorphy3
+  commands:
+    - pip check
+    - pymorphy --help
+  requires:
+    - pip
+
+about:
+  home: https://github.com/no-plagiarism/pymorphy3
+  summary: Morphological analyzer (POS tagger + inflection engine) for Russian language.
+  license: MIT
+  license_file: LICENSE.txt
+
+extra:
+  recipe-maintainers:
+    - skupr-anaconda
