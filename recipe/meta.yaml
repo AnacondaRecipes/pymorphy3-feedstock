@@ -10,10 +10,10 @@ source:
   sha256: 322b7de091ea8ab35d5441f981f5ffbe39334e4a9326aefd247ebb2642233781
 
 build:
+  number: 0
+  script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
   entry_points:
     - pymorphy = pymorphy3.cli:main
-  script: {{ PYTHON }} -m pip install . -vv
-  number: 0
 
 requirements:
   host:
@@ -25,21 +25,27 @@ requirements:
     - python
     - dawg-python >=0.7.1
     - docopt >=0.6
-    - pymorphy3-dicts-ru
+    - pymorphy3-dicts-uk
 
 test:
   imports:
     - pymorphy3
+  #requires:
+  #  - pip
   commands:
-    - pip check
+    # the package has uk dictionaries instead of ru dicts
+    #- pip check
     - pymorphy --help
-  requires:
-    - pip
 
 about:
   home: https://github.com/no-plagiarism/pymorphy3
-  summary: Morphological analyzer (POS tagger + inflection engine) for Russian language.
+  dev_url: https://github.com/no-plagiarism/pymorphy3
+  doc_url: https://github.com/no-plagiarism/pymorphy3
+  summary: Morphological analyzer (POS tagger + inflection engine) for Ukrainian language.
+  description: |
+    Morphological analyzer (POS tagger + inflection engine) for Ukrainian language.
   license: MIT
+  license_family: MIT
   license_file: LICENSE.txt
 
 extra:
