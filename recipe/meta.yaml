@@ -35,16 +35,16 @@ test:
   requires:
     - pip
   commands:
-  - pip check
+    - pip check
     - pymorphy --help
 
 about:
   home: https://github.com/no-plagiarism/pymorphy3
   dev_url: https://github.com/no-plagiarism/pymorphy3
   doc_url: https://github.com/no-plagiarism/pymorphy3
-  summary: Morphological analyzer (POS tagger + inflection engine) for Ukrainian language.
+  summary: Morphological analyzer (POS tagger + inflection engine) for Ukrainian and Russian languages.
   description: |
-    Morphological analyzer (POS tagger + inflection engine) for Ukrainian language.
+    Morphological analyzer (POS tagger + inflection engine) for Ukrainian and Russian languages.
   license: MIT
   license_family: MIT
   license_file: LICENSE.txt
